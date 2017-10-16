@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "OpenDownload³",
+  "version": "2a1",
+  
+  "icons": {
+    "32":"res/icons/uw-32.png",
+    "64":"res/icons/uw-64.png"
+  },
+  
+  "description": "Re-introduces the download file dialog, this time in a form of a WebExtension.",
+  
+  
+  
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": [ 
+      "js/dep/jquery-3.1.1.js",
+      
+      "js/common/Buttons.js",
+      
+      "js/content/dialogInjector.js"
+    ], 
+    "all_frames": true
+  }],
+  
+  "background": {
+    "scripts": ["js/dep/jquery-3.1.1.js", "js/bg/odbg.js"]
+  },
+  
+  "permissions": [
+    "tabs", "storage",  "activeTab", "all_urls", "downloads", "host"
+  ],
+  
+  "web_accessible_resources": [
+    "js/*"
+  ]
+  
+}
